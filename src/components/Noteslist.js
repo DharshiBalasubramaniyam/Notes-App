@@ -1,7 +1,10 @@
 import './Styles.css';
 import { Link } from 'react-router-dom';
+import Notecard from './Notecard';
+import Addnote from './Addnote';
 
-function Noteslist() {
+function Noteslist(props) {
+
     return(
         <>
             <header>
@@ -10,8 +13,22 @@ function Noteslist() {
                         <Link to="/newnote" className='btn'>New note</Link>
                 </div>  
             </header>
-            <section>
+            <section id='list'>
                 <h1>My Notes</h1>
+
+                <div className='notes-container'>
+                {
+                    props.list.map((note) => {
+                        return (
+                            <Notecard note={note} key={note.id}/>
+                        );
+                    })
+                }
+                    
+                   
+                    
+                    
+                </div>
             </section>
         </>
         // 

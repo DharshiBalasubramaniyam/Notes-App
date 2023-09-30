@@ -3,17 +3,22 @@
     margin: 0;
     box-sizing: border-box;
     font-weight: 400;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-decoration: none;
 }
 
 header {
     width: 100%;
-    padding: 10px 75px;
+    padding: 8px 75px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid grey;
+    /* border-bottom: 2px solid grey; */
+    box-shadow: 0 1px 5px rgb(185, 164, 255);
+}
+header h1 {
+    font-size: 30px;
+    font-family:cursive;
 }
 header .btn {
     padding: 10px 0;
@@ -28,17 +33,77 @@ header .btn {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-header .btn:hover {
+header .btn:hover, input[type='submit']:hover {
     background-color: rgb(69, 12, 255);
     color: white;
 }
-header .btn:active {
+header .btn:active, input[type='submit']:active {
     transform: scale(0.98);
 }
 
 section {
     padding: 20px 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    flex-direction: column;
+}
+#list {
+    justify-content: flex-start;
 }
 section h1 {
     text-align: center;
+    font-size: 25px;
+}
+section .notes-container {
+    margin-top: 20px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-gap: 15px;
+}
+section .notes-container .note {
+    box-shadow: 0px 0px 5px black;
+    padding: 15px;
+}
+section .notes-container .note .title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+section .notes-container .note .description {
+    margin: 10px 0;font-size: 17px;
+}
+section .notes-container .note img {
+    height: 20px;
+    width: 20px;
+    margin-right: 15px;
+}
+section form {
+    padding: 15px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 0 2px black;
+}
+section form h1{
+    margin-bottom: 20px;
+}
+section form input, textarea{
+    width: 100%;
+    margin: 10px 0;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 2px;
+    padding: 7px 15px;
+    background-color: transparent;
+    font-size: 17px;
+}
+section form input[type='submit'] {
+    border: none;
+    background-color: rgb(98, 50, 255);
+    padding: 10px 0;
+    color: white;
+    cursor: pointer;
 }

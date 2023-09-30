@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    padding: 10px 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid grey;
+}
+header .btn {
+    padding: 10px 0;
+    background-color: rgb(98, 50, 255);
+    border: none;
+    display: inline-block;
+    text-align: center;
+    width: 150px;
+    border-radius: 5px;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+header .btn:hover {
+    background-color: rgb(69, 12, 255);
+    color: white;
+}
+header .btn:active {
+    transform: scale(0.98);
+}
+
+section {
+    padding: 20px 75px;
+}
+section h1 {
+    text-align: center;
+}

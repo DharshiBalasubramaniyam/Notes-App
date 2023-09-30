@@ -63,12 +63,20 @@ section .notes-container {
     grid-gap: 15px;
 }
 section .notes-container .note {
-    box-shadow: 0px 0px 5px rgb(133, 108, 255) ;
     padding: 15px;
     cursor: pointer;
 }
+section .notes-container .note:nth-child(3n) {
+    background-color: rgb(255, 204, 213);
+}
+section .notes-container .note:nth-child(3n-1) {
+    background-color: rgb(213, 220, 255);
+}
+section .notes-container .note:nth-child(3n-2) {
+    background-color: rgb(199, 255, 199);
+}
 section .notes-container .note:hover {
-    background-color:rgb(245, 243, 255) ;
+    box-shadow: 0px 0px 5px rgb(81, 81, 81) ;
 
 }
 section .notes-container .note .title {
@@ -88,7 +96,7 @@ section .notes-container .note img {
     border-radius: 4px;
 }
 section .notes-container .note img:hover {
-    background-color: rgb(184, 184, 184);
+    background-color: rgb(198, 198, 198);
 }
 section .notes-container .note img:active {
     background-color: transparent;

@@ -18,9 +18,9 @@ function Noteslist(props) {
 
                 <div className='notes-container'>
                 {
-                    props.list.map((note) => {
+                    props.list.map((note, index) => {
                         return (
-                            <Notecard note={note} key={note.id}/>
+                            <Notecard note={note} key={index}/>
                         );
                     })
                 }

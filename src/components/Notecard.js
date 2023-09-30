@@ -2,7 +2,7 @@ import compose from '../images/compose.png';
 import trash from '../images/trash-can.png';
 
 function Notecard(props) {
-    const {key, title, description} = props.note;
+    const {title, description} = props.note;
     return (
         <div className='note'>
             <div className='title'>{title}</div>

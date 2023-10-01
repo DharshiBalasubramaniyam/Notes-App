@@ -4,10 +4,6 @@ import Notecard from './Notecard';
 
 function Noteslist(props) {
 
-    function getIdToRemove(id) {
-        props.removeNote(id);
-    }
-
     return(
         <>
             <header>
@@ -23,7 +19,7 @@ function Noteslist(props) {
                 {
                     props.list.map((note, index) => {
                         return (
-                            <Notecard note={note} key={note.id} getId={getIdToRemove}/>
+                            <Notecard note={note} key={note.id}/>
                         );
                     })
                 }

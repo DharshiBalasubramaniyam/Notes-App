@@ -1,7 +1,9 @@
 import Noteslist from "./components/Noteslist";
 import Addnote from "./components/Addnote";
+import DeleteNote from "./components/DeleteNote";
 import {Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 
 function App() {
@@ -20,24 +22,24 @@ function App() {
   }, [list]);
 
   function addNote(note) {
-      const id = list.length+1;
+      const id = uuidv4();
       note.id = id;
       setList([...list, note]);
   }
 
   function removeNote(id) {
-    console.log(id);
     const removedList = list.filter((note) => {
       return note.id!==id;
     })
     setList(removedList);
-    console.log(removedList);
+    alert('Note deleted sucessfully');
   }
 
   return (
     <>
         <Routes>
           <Route path="/" element={<Noteslist list={list}  removeNote={removeNote}/>} />
+          <Route path="/deletenote/:id" element={<DeleteNote removeNote={removeNote}/>} />
           <Route path="/newnote" element={<Addnote addNote={addNote} />}  />
         </Routes>
     </>

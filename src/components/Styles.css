@@ -19,7 +19,7 @@ header {
 header h1 {
     font-size: 30px;
 }
-header .btn {
+.btn {
     padding: 10px 0;
     background-color: rgb(98, 50, 255);
     border: none;
@@ -32,11 +32,11 @@ header .btn {
     cursor: pointer;
     transition: 0.3s;
 }
-header .btn:hover, input[type='submit']:hover {
+.btn:hover, input[type='submit']:hover {
     background-color: rgb(69, 12, 255);
     color: white;
 }
-header .btn:active, input[type='submit']:active {
+.btn:active, input[type='submit']:active {
     transform: scale(0.98);
 }
 
@@ -48,7 +48,7 @@ section {
     height: 90vh;
     flex-direction: column;
 }
-#list {
+#list, #delete {
     justify-content: flex-start;
 }
 section h1 {
@@ -127,6 +127,37 @@ section form input[type='submit'] {
     color: white;
     transition: 0.3s;
     cursor: pointer;
+}
+section .confirm-box {
+    padding: 15px;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 2px black;
+}
+section .confirm-box p {
+    margin: 15px 0 25px;
+    font-size: 18px;
+}
+section .confirm-box div {
+    display: flex;
+    justify-content: flex-end;
+}
+section .confirm-box .btn {
+    margin-left: 15px;
+}
+section .confirm-box .cancel {
+    background-color: rgb(210, 210, 210);
+}
+section .confirm-box .cancel:hover {
+    background-color: rgb(169, 169, 169);
+    
+}
+section .confirm-box .delete {
+    background-color: red;
+}
+section .confirm-box .delete:hover {
+    background-color: rgb(216, 0, 0);
 }
 
 @media all and (max-width:900px) {

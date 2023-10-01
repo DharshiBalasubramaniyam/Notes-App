@@ -10,7 +10,7 @@ function Notecard(props) {
             <div className='title'>{title}</div>
             <div className='description'>{description}</div>
             <Link to={`/deletenote/${id}`} state={props.note}><img src={trash} alt='trash' /></Link>
-            <img src={compose} alt='edit'/>
+            <Link to={`/updatenote/${id}`} state={props.note}><img src={compose} alt='edit'/></Link>
         </div>
     );
 }

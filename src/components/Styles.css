@@ -110,6 +110,13 @@ section form {
 section form h1{
     margin-bottom: 20px;
 }
+section form .btns {
+    display: flex;
+    gap: 10px;
+}
+section form .btns .link {
+    width: 100%;
+}
 section form input, textarea{
     width: 100%;
     margin: 10px 0;
@@ -127,6 +134,12 @@ section form input[type='submit'] {
     color: white;
     transition: 0.3s;
     cursor: pointer;
+}
+section form .btns .cancel {
+    background-color: rgb(210, 210, 210);
+}
+section form .btns .cancel:hover {
+    background-color: rgb(169, 169, 169);
 }
 section .confirm-box {
     padding: 15px;

@@ -1,9 +1,12 @@
 import './Styles.css';
 import { Link } from 'react-router-dom';
 import Notecard from './Notecard';
-import Addnote from './Addnote';
 
 function Noteslist(props) {
+
+    function getIdToRemove(id) {
+        props.removeNote(id);
+    }
 
     return(
         <>
@@ -20,7 +23,7 @@ function Noteslist(props) {
                 {
                     props.list.map((note, index) => {
                         return (
-                            <Notecard note={note} key={index}/>
+                            <Notecard note={note} key={note.id} getId={getIdToRemove}/>
                         );
                     })
                 }

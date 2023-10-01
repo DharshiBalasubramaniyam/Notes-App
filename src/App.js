@@ -11,23 +11,33 @@ function App() {
   let [list, setList] = useState([]);
 
   useEffect(()=> {
-    const storageNotes = JSON.parse(localStorage.getItem('notes'));
+    const storageNotes = JSON.parse(localStorage.getItem(local_storage_key));
     if(storageNotes) setList(storageNotes);
-    console.log('inside use effect')
   }, []);
 
   useEffect(()=> {
-    localStorage.setItem('notes', JSON.stringify(list));
+    localStorage.setItem(local_storage_key, JSON.stringify(list));
   }, [list]);
 
   function addNote(note) {
+      const id = list.length+1;
+      note.id = id;
       setList([...list, note]);
+  }
+
+  function removeNote(id) {
+    console.log(id);
+    const removedList = list.filter((note) => {
+      return note.id!==id;
+    })
+    setList(removedList);
+    console.log(removedList);
   }
 
   return (
     <>
         <Routes>
-          <Route path="/" element={<Noteslist list={list}  />} />
+          <Route path="/" element={<Noteslist list={list}  removeNote={removeNote}/>} />
           <Route path="/newnote" element={<Addnote addNote={addNote} />}  />
         </Routes>
     </>

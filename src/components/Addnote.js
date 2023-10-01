@@ -8,6 +8,7 @@ function Addnote(props) {
     const navigate = useNavigate();
 
     const [input, setInput] = useState({
+        id: "",
         title: "",
         description: ""
     });
@@ -15,10 +16,10 @@ function Addnote(props) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (input.title=="") {
+        if (input.title==="") {
             alert('Title is required!'); return;
         }
-        if (input.description=="") {
+        if (input.description==="") {
             alert('Description is required!'); return;
         }
 

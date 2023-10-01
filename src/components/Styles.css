@@ -128,3 +128,32 @@ section form input[type='submit'] {
     transition: 0.3s;
     cursor: pointer;
 }
+
+@media all and (max-width:900px) {
+    section {
+        padding: 20px;
+    }
+    header {
+        padding: 8px 20px;
+    }
+}
+@media all and (max-width:900px) {
+    header h1 {
+        font-size: 25px;
+    }
+    header .btn {
+        padding: 7px 0;
+        width: 120px;
+        font-size: 16.5px;
+    }
+    section .notes-container .note .title {
+        font-size: 18px;
+    }
+    section .notes-container .note .description {
+        font-size: 16px;
+    }
+    section .notes-container .note img {
+        height: 24px;
+        width: 24px;
+    }
+}

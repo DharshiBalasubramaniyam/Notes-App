@@ -1,7 +1,8 @@
 # Notes app using React js
 
 This is a simple notes app where users can add, edit, delete and view notes. 
-For store notes used locall storage.
+
+Notes are stored in local storage.
 
 
 # Getting Started with Create React App

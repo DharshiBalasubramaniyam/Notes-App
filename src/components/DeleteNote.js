@@ -5,6 +5,11 @@ function DeleteNote(props) {
     const location = useLocation();
     const note = location.state;
 
+    function del() {
+        props.removeNote(note.id);
+        alert("Note deleted sucessfully!");
+    }
+
     return(
         <>
             <header>
@@ -18,9 +23,7 @@ function DeleteNote(props) {
                         <Link to="/" className="btn cancel">Cancel</Link>
                         <Link to="/"
                             className="btn delete"
-                            onClick={() => {
-                                return props.removeNote(note.id);
-                            }}
+                            onClick={del}
                         >
                             Delete
                         </Link>

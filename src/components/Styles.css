@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    outline: none;
     font-weight: 400;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: none;
@@ -10,14 +11,17 @@
 header {
     width: 100%;
     padding: 8px 75px;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* border-bottom: 2px solid grey; */
+    position: fixed;
+    background-color: white;
     box-shadow: 0 1px 5px rgb(211, 211, 211);
 }
 header h1 {
     font-size: 30px;
+    flex: 1;
 }
 .btn {
     padding: 10px 0;
@@ -32,6 +36,33 @@ header h1 {
     cursor: pointer;
     transition: 0.3s;
 }
+header .search {
+    position: relative;
+    margin-right: 15px;
+    background-color: white;
+}
+header .search input {
+    padding: 10px 15px 10px 40px;
+    width: 430px;
+    font-size: 16px;
+    border: 1px solid rgb(184, 184, 184);border-radius: 7px;
+}
+header .search input:hover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+header .search input:focus {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+}
+header .search img{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 5px;
+    border-radius: 5px;
+    left: 5px;
+    background-color: rgb(232, 232, 232);
+    padding: 7px;
+}
 .btn:hover, input[type='submit']:hover {
     background-color: rgb(69, 12, 255);
     color: white;
@@ -41,19 +72,17 @@ header h1 {
 }
 
 section {
-    padding: 20px 75px;
+    padding: 90px 75px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 90vh;
     flex-direction: column;
-}
-#list, #delete {
-    justify-content: flex-start;
 }
 section h1 {
     text-align: center;
     font-size: 25px;
+
 }
 section .notes-container {
     margin-top: 20px;
@@ -100,6 +129,12 @@ section .notes-container .note img:hover {
 }
 section .notes-container .note img:active {
     background-color: transparent;
+}
+section .empty {
+    text-align: center;
+    margin-top: 200px;
+    width: 100%;
+    font-size: 18px;
 }
 section form {
     padding: 15px;
@@ -173,9 +208,9 @@ section .confirm-box .delete:hover {
     background-color: rgb(216, 0, 0);
 }
 
-@media all and (max-width:900px) {
+@media all and (max-width:1100px) {
     section {
-        padding: 20px;
+        padding: 90px 20px;
     }
     header {
         padding: 8px 20px;
@@ -199,5 +234,23 @@ section .confirm-box .delete:hover {
     section .notes-container .note img {
         height: 24px;
         width: 24px;
+    }
+    header .search {
+        position: fixed;
+        width: 100%;
+        top: 55px;
+        left: 0;
+        padding: 10px 20px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    }
+    header .search input {
+        width: 100%;
+    }
+    header .search img{
+        left: 25px;
+        top: 15px;
+    }
+    #list {
+        padding-top: 125px;
     }
 }

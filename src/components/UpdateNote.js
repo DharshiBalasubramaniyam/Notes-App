@@ -19,6 +19,14 @@ function UpdateNote(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
+
+        if (input.title==="") {
+            alert('Title is required!'); return;
+        }
+        if (input.description==="") {
+            alert('Description is required!'); return;
+        }
+
         props.editNote(input);
 
         alert('Note edited successfully!');

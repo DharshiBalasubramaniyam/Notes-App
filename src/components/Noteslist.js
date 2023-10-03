@@ -28,11 +28,13 @@ function Noteslist(props) {
                         <img src={searchImage} alt='search'/>
                 </div>
                     
-                    <Link to="/newnote" className='btn'>New note</Link> 
+                <Link to="/newnote" className='btn'>New note</Link> 
             </header>
             <section id='list'>
                 <h1>My Notes</h1>
-
+                {
+                   (notesList.length===0) ? <></> : (notesList.length===1) ? <small>{notesList.length} Note</small> : <small>{notesList.length} Notes </small>
+                }
                 <div className='notes-container'>
                 {
                     notesList.length === 0 ? <><p className='empty'>No notes found!</p></>:

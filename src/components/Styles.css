@@ -76,8 +76,8 @@ section {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 90vh;
     flex-direction: column;
+    min-height: 100vh;
 }
 section h1 {
     text-align: center;
@@ -86,6 +86,7 @@ section h1 {
 }
 section .notes-container {
     margin-top: 20px;
+    /* margin-bottom: 20px; */
     display: grid;
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -251,6 +252,6 @@ section .confirm-box .delete:hover {
         top: 15px;
     }
     #list {
-        padding-top: 125px;
+        padding: 125px 20px 15px;
     }
 }

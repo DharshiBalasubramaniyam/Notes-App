@@ -5,6 +5,7 @@ import UpdateNote from "./components/UpdateNote";
 import {Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route path="/updatenote/:id" element={<UpdateNote editNote={editNote} />} />
           <Route path="/newnote" element={<Addnote addNote={addNote} />}  />
         </Routes>
+        <Footer/>
     </>
   );
 }

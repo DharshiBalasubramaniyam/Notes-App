@@ -209,6 +209,22 @@ section .confirm-box .delete:hover {
     background-color: rgb(216, 0, 0);
 }
 
+/* -----------------------------------------footer styles----------------------------------------------- */
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main);
+    color: rgb(154, 154, 154);
+    font-size: 14px;
+    padding: 3px 0;
+}
+footer img {
+    height: 12px;
+    width: 12px;
+    margin: 3px;
+}
+
 @media all and (max-width:1100px) {
     section {
         padding: 90px 20px;
@@ -253,5 +269,8 @@ section .confirm-box .delete:hover {
     }
     #list {
         padding: 125px 20px 15px;
+    }
+    footer {
+        font-size: 11px;
     }
 }

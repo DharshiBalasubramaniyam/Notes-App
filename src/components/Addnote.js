@@ -10,7 +10,9 @@ function Addnote(props) {
     const [input, setInput] = useState({
         id: "",
         title: "",
-        description: ""
+        description: "",
+        date: "",
+        time: ""
     });
 
     function handleSubmit(e) {

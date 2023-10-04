@@ -19,6 +19,9 @@ header {
     background-color: white;
     box-shadow: 0 1px 5px rgb(211, 211, 211);
 }
+header .back {
+    flex: 1;
+}
 header h1 {
     font-size: 30px;
     flex: 1;
@@ -79,10 +82,18 @@ section {
     flex-direction: column;
     min-height: 100vh;
 }
+.viewnotes {
+    align-items:flex-start;
+}
 section h1 {
     text-align: center;
     font-size: 25px;
-
+    text-transform: capitalize;
+}
+section > p {
+    width: 100%;
+    margin-top: 20px;
+    text-align: justify;
 }
 section .notes-container {
     margin-top: 20px;
@@ -95,14 +106,21 @@ section .notes-container {
 section .notes-container .note {
     padding: 15px;
     cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
-section .notes-container .note:nth-child(3n) {
+section .notes-container .note-link {
+    border-radius: 10px;
+}
+section .notes-container .note-link:nth-child(3n) {
     background-color: rgb(255, 204, 213);
 }
-section .notes-container .note:nth-child(3n-1) {
+section .notes-container .note-link:nth-child(3n-1) {
     background-color: rgb(213, 220, 255);
 }
-section .notes-container .note:nth-child(3n-2) {
+section .notes-container .note-link:nth-child(3n-2) {
     background-color: rgb(199, 255, 199);
 }
 section .notes-container .note:hover {
@@ -110,13 +128,14 @@ section .notes-container .note:hover {
 
 }
 section .notes-container .note .title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
     text-transform: capitalize;
+    color: black;
 }
 section .notes-container .note .description {
-    margin: 10px 0;font-size: 17px;
+    margin: 10px 0;font-size: 17px;color: black;
 }
 section .notes-container .note img {
     height: 27px;
@@ -136,6 +155,21 @@ section .empty {
     margin-top: 200px;
     width: 100%;
     font-size: 18px;
+}
+.readmore {
+    color: rgb(69, 12, 255);
+}
+.readmore:hover{
+    color: rgb(41, 0, 175);
+}
+.date-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 13px;
+    margin-top: 15px;
+    color: rgb(27, 0, 116);
+    flex: 1;
 }
 section form {
     padding: 15px;
@@ -208,6 +242,22 @@ section .confirm-box .delete {
 section .confirm-box .delete:hover {
     background-color: rgb(216, 0, 0);
 }
+
+header .trash,header .edit{
+    height: 27px;
+    width: 27px;
+    transition: 0.5s;
+    padding:4px;
+    border-radius: 4px;
+    margin-left: 15px;
+}
+header .trash:hover,header .edit:hover{
+    background-color: rgb(198, 198, 198);
+}
+header .trash:active,header .edit:active {
+    background-color: transparent;
+}
+
 
 /* -----------------------------------------footer styles----------------------------------------------- */
 footer {

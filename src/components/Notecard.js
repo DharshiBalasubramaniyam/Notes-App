@@ -1,17 +1,26 @@
-import compose from '../images/compose.png';
-import trash from '../images/trash-can.png';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function Notecard(props) {
-    const {id, title, description} = props.note;
+    const {id, title, description, date, time} = props.note;
+
+
 
     return (
-        <div className='note'>
-            <div className='title'>{title}</div>
-            <div className='description'>{description}</div>
-            <Link to={`/deletenote/${id}`} state={props.note}><img src={trash} alt='trash' /></Link>
-            <Link to={`/updatenote/${id}`} state={props.note}><img src={compose} alt='edit'/></Link>
-        </div>
+        <Link to={`/viewnote/${id}`} state={props.note} className='note-link'>
+            <div className='note'>
+                <div className='title'>{title}</div>
+                {
+                    (description.length < 100) ? 
+                        <div className='description'>{description}  </div> : 
+                        <div className='description'> {description.substring(0, 100)} <Link to={`/viewnote/${id}`} className='readmore'>...Read More</Link>  </div>
+                }
+                <div className='date-time'>
+                    <div>{date}</div>
+                    <div>{time}</div>
+                </div>
+            </div>
+        </Link>
     );
 }
 

@@ -9,7 +9,6 @@ function UpdateNote(props) {
     const note = location.state;
 
     const navigate = useNavigate();
-    // console.log(note);
 
     const [input, setInput] = useState({
         id: note.id,

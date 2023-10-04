@@ -31,7 +31,9 @@ function Noteslist(props) {
                 <Link to="/newnote" className='btn'>New note</Link> 
             </header>
             <section id='list'>
-                <h1>My Notes</h1>
+                {
+                    (search === "") ? <h1>All Notes</h1> : <h1>Search results for '{search}'</h1>
+                }
                 {
                    (notesList.length===0) ? <></> : (notesList.length===1) ? <small>{notesList.length} Note</small> : <small>{notesList.length} Notes </small>
                 }

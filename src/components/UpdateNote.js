@@ -64,7 +64,7 @@ function UpdateNote(props) {
 
                     <textarea 
                         placeholder='Description' 
-                        rows={15}
+                        rows={25}
                         value={input.description}
                         onChange={(e) => {
                             setInput(previousState => {

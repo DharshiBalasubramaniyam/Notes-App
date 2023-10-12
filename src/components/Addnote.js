@@ -69,7 +69,7 @@ function Addnote(props) {
 
                     <textarea 
                         placeholder='Type description of your note' 
-                        rows={15}
+                        rows={25}
                         value={input.description}
                         onChange={(e) => {
                             setInput(previousState => {

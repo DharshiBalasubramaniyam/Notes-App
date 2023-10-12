@@ -46,6 +46,11 @@ function UpdateNote(props) {
             <section>
                 <form onSubmit={handleSubmit}>
 
+                    <div className='btns'>
+                        <Link to={`/viewnote/${input.id}`} className='link'><input type='submit' value='Back' className='cancel'/></Link>
+                        <input type='submit' value='Done' />
+                    </div>
+
                     <input type='text' 
                         ref={titleRef}
                         placeholder='Title'
@@ -67,11 +72,8 @@ function UpdateNote(props) {
                                 return {...previousState, description: e.target.value}
                             })
                         }}
-                    ></textarea><br/>
-                    <div className='btns'>
-                    <Link to={`/viewnote/${input.id}`} className='link'><input type='submit' value='Cancel' className='cancel'/></Link>
-                    <input type='submit' value='Save' />
-                    </div>
+                    ></textarea>
+                    
                     
                 </form>
             </section>

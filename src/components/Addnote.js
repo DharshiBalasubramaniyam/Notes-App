@@ -44,12 +44,14 @@ function Addnote(props) {
         <>
             <header>
                 <h1>Add New Note</h1>
-                <div>
-                        <Link to="/" className='btn'>Back to Notes</Link>
-                </div>  
             </header>
             <section>
                 <form onSubmit={handleSubmit}>
+
+                    <div className='btns'>
+                        <Link to="/" className='link'><input type='submit' value='Back' className='cancel'/></Link>
+                        <input type='submit' value='Done' />
+                    </div><br/>
 
                     <input type='text' 
                         ref={titleRef}
@@ -72,12 +74,7 @@ function Addnote(props) {
                                 return {...previousState, description: e.target.value}
                             })
                         }}
-                    ></textarea><br/>
-
-                    <div className='btns'>
-                        <Link to="/" className='link'><input type='submit' value='Cancel' className='cancel'/></Link>
-                        <input type='submit' value='Add' />
-                    </div>
+                    ></textarea>
                 </form>
             </section>
             

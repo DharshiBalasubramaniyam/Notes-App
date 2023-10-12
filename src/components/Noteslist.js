@@ -15,7 +15,7 @@ function Noteslist(props) {
     return(
         <>
             <header>
-                <h1>Notes app</h1>
+                <h1>All Notes</h1>
                 <div className='search'>
                         <input 
                             type='text' 
@@ -32,14 +32,14 @@ function Noteslist(props) {
             </header>
             <section id='list'>
                 {
-                    (search === "") ? <h1>All Notes</h1> : <h1>Search results for '{search}'</h1>
+                    (search === "") ? <></> : <h1>Search results for '{search}'</h1>
                 }
                 {
-                   (notesList.length===0) ? <></> : (notesList.length===1) ? <small>{notesList.length} Note</small> : <small>{notesList.length} Notes </small>
+                    (notesList.length===1) ? <small>{notesList.length} Note</small> : <small>{notesList.length} Notes </small>
                 }
                 <div className='notes-container'>
                 {
-                    notesList.length === 0 ? <><p className='empty'>No notes found!</p></>:
+                    (notesList.length === 0 && search === "" )? <><p className='empty'>No notes here! <br/>Tap the new button on top to create a note.</p></>:
                     notesList.map((note) => {
                         return (
                             <Notecard note={note} key={note.id}/>

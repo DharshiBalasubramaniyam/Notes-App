@@ -1,11 +1,16 @@
 import './Styles.css';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 function Addnote(props) {
 
     const navigate = useNavigate();
+    const titleRef = useRef(null);
+
+    useEffect(()=> {
+        titleRef.current.focus();
+    }, [])
 
     const [input, setInput] = useState({
         id: "",
@@ -30,7 +35,7 @@ function Addnote(props) {
             return {...previousState, title: "", description: ""}
         })
 
-        alert('New note added successfully!');
+        // alert('New note added successfully!');
 
         navigate(-1);
     }
@@ -38,17 +43,17 @@ function Addnote(props) {
     return(
         <>
             <header>
-                <h1>Notes app</h1>
+                <h1>Add New Note</h1>
                 <div>
-                        <Link to="/" className='btn'>View notes</Link>
+                        <Link to="/" className='btn'>Back to Notes</Link>
                 </div>  
             </header>
             <section>
                 <form onSubmit={handleSubmit}>
-                    <h1>Add New Note</h1>
 
                     <input type='text' 
-                        placeholder='Title'
+                        ref={titleRef}
+                        placeholder='Type your title'
                         value={input.title}
                         onChange={(e) => {
                             setInput(previousState => {
@@ -59,7 +64,7 @@ function Addnote(props) {
                     /><br/>
 
                     <textarea 
-                        placeholder='Description' 
+                        placeholder='Type description of your note' 
                         rows={15}
                         value={input.description}
                         onChange={(e) => {
@@ -69,12 +74,14 @@ function Addnote(props) {
                         }}
                     ></textarea><br/>
 
-                    <input type='submit' value='Add' />
+                    <div className='btns'>
+                        <Link to="/" className='link'><input type='submit' value='Cancel' className='cancel'/></Link>
+                        <input type='submit' value='Add' />
+                    </div>
                 </form>
             </section>
             
         </>
-        // 
     );
 }
 

@@ -29,7 +29,7 @@ function App() {
       note.id = id;
       note.date = new Date().toDateString();
       note.time = new Date().toLocaleTimeString();
-      setList([...list, note]);
+      setList([note, ...list]);
   }
 
   function removeNote(id) {
@@ -45,7 +45,7 @@ function App() {
     const removedList = list.filter((note) => {
       return note.id!==editednote.id;
     })
-    setList([...removedList, editednote]);
+    setList([editednote, ...removedList]);
   }
 
   return (
@@ -55,7 +55,7 @@ function App() {
           <Route path="/deletenote/:id" element={<DeleteNote removeNote={removeNote}/>} />
           <Route path="/updatenote/:id" element={<UpdateNote editNote={editNote} />} />
           <Route path="/newnote" element={<Addnote addNote={addNote} />}  />
-          <Route path="/viewnote/:id" element={<Viewnote list={list}/>}  />
+          <Route path="/viewnote/:id" element={<Viewnote/>}  />
         </Routes>
         <Footer/>
     </>

@@ -1,5 +1,5 @@
 import { useLocation, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -8,7 +8,13 @@ function UpdateNote(props) {
     const location = useLocation();
     const note = location.state;
 
+    const titleRef = useRef(null);
+
     const navigate = useNavigate();
+
+    useEffect(()=> {
+        titleRef.current.focus();
+    }, [])
 
     const [input, setInput] = useState({
         id: note.id,
@@ -28,20 +34,20 @@ function UpdateNote(props) {
 
         props.editNote(input);
 
-        alert('Note edited successfully!');
+        // alert('Note edited successfully!');
 
         navigate(-1);
     }
     return(
         <>
             <header>
-                <h1>Notes app</h1>
+                <h1>Edit Note</h1>
             </header>
             <section>
                 <form onSubmit={handleSubmit}>
-                    <h1>Edit Note</h1>
 
                     <input type='text' 
+                        ref={titleRef}
                         placeholder='Title'
                         value={input.title}
                         onChange={(e) => {
@@ -63,8 +69,8 @@ function UpdateNote(props) {
                         }}
                     ></textarea><br/>
                     <div className='btns'>
-                    <Link to="/" className='link'><input type='submit' value='Cancel' className='cancel'/></Link>
-                    <input type='submit' value='Update' />
+                    <Link to={`/viewnote/${input.id}`} className='link'><input type='submit' value='Cancel' className='cancel'/></Link>
+                    <input type='submit' value='Save' />
                     </div>
                     
                 </form>

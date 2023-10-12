@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 function Notecard(props) {
     const {id, title, description, date, time} = props.note;
-
-
 
     return (
         <Link to={`/viewnote/${id}`} state={props.note} className='note-link'>

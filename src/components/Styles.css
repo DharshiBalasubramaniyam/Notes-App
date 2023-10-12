@@ -8,6 +8,18 @@
     text-decoration: none;
 }
 
+::selection {
+    background-color: var(--white);
+    color: var(--main);
+}
+
+:root {
+    --main: rgb(129, 129, 255);
+    --white: rgb(255, 255, 255);
+    --btnhover: rgb(234, 234, 234);
+    --light: rgb(224, 224, 255);
+}
+
 header {
     width: 100%;
     padding: 8px 75px;
@@ -16,7 +28,7 @@ header {
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    background-color: white;
+    background-color: var(--main);
     box-shadow: 0 1px 5px rgb(211, 211, 211);
 }
 header .back {
@@ -25,16 +37,17 @@ header .back {
 header h1 {
     font-size: 30px;
     flex: 1;
+    color: var(--white);
 }
 .btn {
-    padding: 10px 0;
-    background-color: rgb(98, 50, 255);
+    padding: 10.5px 0;
+    background-color: var(--white);
     border: none;
     display: inline-block;
     text-align: center;
     width: 150px;
     border-radius: 5px;
-    color: white;
+    color: var(--main);
     font-size: 17px;
     cursor: pointer;
     transition: 0.3s;
@@ -42,65 +55,72 @@ header h1 {
 header .search {
     position: relative;
     margin-right: 15px;
-    background-color: white;
+    background-color: var(--white);
+    border-radius: 7px;
 }
 header .search input {
     padding: 10px 15px 10px 40px;
     width: 430px;
-    font-size: 16px;
-    border: 1px solid rgb(184, 184, 184);border-radius: 7px;
-}
-header .search input:hover {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+    font-size: 16.5px;
+    background-color: transparent;
+    color: var(--dark);
+    border: 2px solid var(--light);border-radius: 7px;
 }
 header .search input:focus {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+    box-shadow: 0px 0px 2px var(--main);
 }
 header .search img{
     position: absolute;
     width: 30px;
     height: 30px;
-    top: 5px;
-    border-radius: 5px;
+    top:6px;
     left: 5px;
-    background-color: rgb(232, 232, 232);
-    padding: 7px;
+    padding: 5px;
 }
 .btn:hover, input[type='submit']:hover {
-    background-color: rgb(69, 12, 255);
-    color: white;
+    box-shadow: 0 0 4px var(--white);
 }
 .btn:active, input[type='submit']:active {
     transform: scale(0.98);
 }
 
 section {
-    padding: 90px 75px;
+    padding: 90px 75px 20px 75px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--white);
+}
+section small {
+    text-align: center;width: 100%;
 }
 .viewnotes {
     align-items:flex-start;
 }
 section h1 {
     text-align: center;
-    font-size: 25px;
+    width: 100%;
+    font-size: 20px;
+}
+section h2{
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
     text-transform: capitalize;
 }
 section > p {
     width: 100%;
     margin-top: 20px;
     text-align: justify;
+    font-size: 17px;
 }
 section .notes-container {
     margin-top: 20px;
-    /* margin-bottom: 20px; */
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: 15px;
 }
 section .notes-container .note {
@@ -113,42 +133,27 @@ section .notes-container .note {
 }
 section .notes-container .note-link {
     border-radius: 10px;
+    background-color: var(--white);
+    box-shadow: 0 0 5px var(--main);
+    transition: 0.5s;
+}section .notes-container .note-link:hover {
+    background-color: var(--light);
 }
-section .notes-container .note-link:nth-child(3n) {
-    background-color: rgb(255, 204, 213);
-}
-section .notes-container .note-link:nth-child(3n-1) {
-    background-color: rgb(213, 220, 255);
-}
-section .notes-container .note-link:nth-child(3n-2) {
-    background-color: rgb(199, 255, 199);
-}
-section .notes-container .note:hover {
-    box-shadow: 0px 0px 5px rgb(81, 81, 81) ;
 
-}
 section .notes-container .note .title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
+    overflow: hidden;
     margin-bottom: 10px;
     text-transform: capitalize;
-    color: black;
+    color: var(--dark);
 }
 section .notes-container .note .description {
-    margin: 10px 0;font-size: 17px;color: black;
+    margin: 10px 0;font-size: 16px;color: black;overflow: hidden;
 }
-section .notes-container .note img {
-    height: 27px;
-    width: 27px;
-    transition: 0.5s;
-    padding:4px;
-    border-radius: 4px;
-}
-section .notes-container .note img:hover {
-    background-color: rgb(198, 198, 198);
-}
-section .notes-container .note img:active {
-    background-color: transparent;
+section .notes-container p{
+    font-size: 15px;
+    color: var(--light);
 }
 section .empty {
     text-align: center;
@@ -166,58 +171,64 @@ section .empty {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    font-size: 13px;
+    font-size: 9.5px;
     margin-top: 15px;
     color: rgb(27, 0, 116);
     flex: 1;
 }
 section form {
-    padding: 15px;
     width: 100%;
-    max-width: 450px;
-    box-shadow: 0 0 2px black;
-}
-section form h1{
-    margin-bottom: 20px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 section form .btns {
     display: flex;
-    gap: 10px;
-}
-section form .btns .link {
     width: 100%;
+    justify-content: flex-end;
+    gap: 10px;
 }
 section form input, textarea{
     width: 100%;
-    margin: 10px 0;
     outline: none;
-    border: 2px solid black;
-    border-radius: 2px;
-    padding: 7px 15px;
+    border: none;
     background-color: transparent;
     font-size: 17px;
 }
+section form textarea{
+    flex: 1;
+}
+section form input[type='text'] {
+    font-weight: 600;
+    font-size: 20px;
+}
 section form input[type='submit'] {
     border: none;
-    background-color: rgb(98, 50, 255);
-    padding: 10px 0;
+    background-color: var(--main);
+    padding: 12px 0;
+    width: 120px;
+    border-radius: 5px;
     color: white;
     transition: 0.3s;
     cursor: pointer;
 }
+section form input[type='submit']:hover {
+    background-color: rgb(101, 101, 255);
+}
 section form .btns .cancel {
-    background-color: rgb(210, 210, 210);
+    background-color: rgb(236, 236, 236);
+    color: var(--main);
 }
 section form .btns .cancel:hover {
-    background-color: rgb(169, 169, 169);
+    background-color: rgb(221, 221, 221);
 }
 section .confirm-box {
-    padding: 15px;
     position: relative;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 0 2px black;
 }
+
 section .confirm-box p {
     margin: 15px 0 25px;
     font-size: 18px;
@@ -230,14 +241,15 @@ section .confirm-box .btn {
     margin-left: 15px;
 }
 section .confirm-box .cancel {
-    background-color: rgb(210, 210, 210);
+    background-color: rgb(236, 236, 236);
 }
 section .confirm-box .cancel:hover {
-    background-color: rgb(169, 169, 169);
+    background-color: rgb(221, 221, 221);
     
 }
 section .confirm-box .delete {
     background-color: red;
+    color: var(--white);
 }
 section .confirm-box .delete:hover {
     background-color: rgb(216, 0, 0);
@@ -252,7 +264,7 @@ header .trash,header .edit{
     margin-left: 15px;
 }
 header .trash:hover,header .edit:hover{
-    background-color: rgb(198, 198, 198);
+    background-color: var(--white);
 }
 header .trash:active,header .edit:active {
     background-color: transparent;
@@ -264,7 +276,6 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--main);
     color: rgb(154, 154, 154);
     font-size: 14px;
     padding: 3px 0;
@@ -277,7 +288,7 @@ footer img {
 
 @media all and (max-width:1100px) {
     section {
-        padding: 90px 20px;
+        padding: 90px 20px 0 20px;
     }
     header {
         padding: 8px 20px;

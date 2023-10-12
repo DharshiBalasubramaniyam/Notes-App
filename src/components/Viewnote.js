@@ -1,19 +1,24 @@
-import { useLocation, Link, useParams} from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
 import compose from '../images/compose.png';
 import trash from '../images/trash-can.png';
 import { useEffect, useState } from 'react';
 
-function Viewnote(props) {
+function Viewnote() {
 
-    const [note, setNote] = useState({});
+    const [note, setNote] = useState({
+    });
     const {id} = useParams();
 
     useEffect(()=> {
-        const filtered = props.list.filter((note) => {
-            return note.id == id;
-        })
-        setNote(filtered[0]);
-    }, [])
+        const storageNotes = JSON.parse(localStorage.getItem("notes"));
+        if(storageNotes) {
+            const filtered = storageNotes.filter((note) => {
+                return note.id === id;
+            }) 
+            setNote(filtered[0]);
+        }
+
+    }, [id])
 
     return(
         <>
@@ -25,7 +30,7 @@ function Viewnote(props) {
                 <Link to={`/updatenote/${note.id}`} state={note}><img src={compose} alt='edit' className='edit'/></Link> 
             </header>
             <section className='viewnotes'>
-                <h1>{note.title}</h1>
+                <h2>{note.title}</h2>
                 <p>{note.description}</p>
             </section>
         </>

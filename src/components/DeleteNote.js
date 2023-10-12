@@ -7,20 +7,19 @@ function DeleteNote(props) {
 
     function del() {
         props.removeNote(note.id);
-        alert("Note deleted sucessfully!");
+        // alert("Note deleted sucessfully!");
     }
 
     return(
         <>
             <header>
-                <h1>Notes app</h1>
+                <h1>Confirm - Delete</h1>
             </header>
             <section id='delete'>
                 <div className="confirm-box">
-                    <h1>Confirm - Delete</h1>
                     <p>Are you sure? <br/><br/> Permenently delete your note "{note.title}"? You can't undo this after deleting.</p>
                     <div>
-                        <Link to="/" className="btn cancel">Cancel</Link>
+                        <Link to={`/viewnote/${note.id}`} className="btn cancel">Cancel</Link>
                         <Link to="/"
                             className="btn delete"
                             onClick={del}

@@ -1,7 +1,8 @@
 import { useLocation, Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import back from '../images/back.png';
+import done from '../images/done.png';
 
 function UpdateNote(props) {
 
@@ -41,16 +42,14 @@ function UpdateNote(props) {
     return(
         <>
             <header>
-                <h1>Edit Note</h1>
+                <h1>
+                    <Link to={`/viewnote/${input.id}`} className='link'><img src={back} alt='back'/></Link>
+                    Edit Note
+                </h1>
+                <img src={done} alt='done' onClick={handleSubmit}/>
             </header>
             <section>
-                <form onSubmit={handleSubmit}>
-
-                    <div className='btns'>
-                        <Link to={`/viewnote/${input.id}`} className='link'><input type='submit' value='Back' className='cancel'/></Link>
-                        <input type='submit' value='Done' />
-                    </div>
-
+                <form>
                     <input type='text' 
                         ref={titleRef}
                         placeholder='Title'

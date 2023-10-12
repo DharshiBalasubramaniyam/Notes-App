@@ -2,6 +2,9 @@ import './Styles.css';
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import back from '../images/back.png';
+import done from '../images/done.png';
+
 
 function Addnote(props) {
 
@@ -43,15 +46,14 @@ function Addnote(props) {
     return(
         <>
             <header>
-                <h1>Add New Note</h1>
+                <h1>
+                    <Link to="/" className='link'><img src={back} alt='back'/></Link>
+                    Add New Note
+                </h1>
+                <img src={done} alt='done' onClick={handleSubmit}/>
             </header>
             <section>
-                <form onSubmit={handleSubmit}>
-
-                    <div className='btns'>
-                        <Link to="/" className='link'><input type='submit' value='Back' className='cancel'/></Link>
-                        <input type='submit' value='Done' />
-                    </div><br/>
+                <form>
 
                     <input type='text' 
                         ref={titleRef}

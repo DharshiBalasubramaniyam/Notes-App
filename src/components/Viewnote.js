@@ -24,9 +24,6 @@ function Viewnote() {
     return(
         <>
             <header>
-                {/* <div className='back'>
-                    <Link to="/" className='btn'>Back to notes</Link>
-                </div>  */}
                 <h1>
                     <Link to="/" className='link'><img src={back} alt='back'/></Link>
                 </h1>

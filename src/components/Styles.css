@@ -36,18 +36,41 @@ header h1 {
     flex: 1;
     color: var(--white);
     display: flex;
+    align-items: center;
+    /* background-color: bisque; */
 }
 header  img {
-    width: 30px;
+    width: 26px;
+    height: 25px;
     transition: 0.5s;
-    padding:4px;
-    border-radius: 4px;
-    margin-right: 5px;
+    /* display: none; */
+    /* background-color: aqua; */
+    /* padding:4px; */
+    /* border-radius: 4px; */
+    /* margin-right: 5px; */
     cursor: pointer;
 }
-header img:hover{
-    background-color:rgb(0, 0, 0);
+header h1 img {
+    margin-top: 4px;
+    margin-right: 7px;
 }
+header img:hover{
+    transform: scale(0.9);
+}
+header .trash,header .edit{
+    height: 22px;
+    width: 22px;
+    /* transition: 0.5s; */
+    /* padding:4px; */
+    /* border-radius: 4px; */
+    margin-left: 15px;
+}
+/* header .trash:hover,header .edit:hover{
+    background-color:rgb(0, 0, 0);
+} */
+/* header .trash:active,header .edit:active {
+    background-color: transparent;
+} */
 .btn {
     padding: 10.5px 0;
     background-color: var(--white);
@@ -218,7 +241,7 @@ section .confirm-box {
 }
 section .confirm-box p {
     margin: 15px 0 25px;
-    font-size: 18px;
+    font-size: 16px;
 }
 section .confirm-box div {
     display: flex;
@@ -226,9 +249,11 @@ section .confirm-box div {
 }
 section .confirm-box .btn {
     margin-left: 15px;
+    width: 110px;
 }
 section .confirm-box .cancel {
     background-color: rgb(236, 236, 236);
+    color: rgb(0, 0, 0);
 }
 section .confirm-box .cancel:hover {
     background-color: rgb(221, 221, 221);
@@ -240,20 +265,6 @@ section .confirm-box .delete {
 }
 section .confirm-box .delete:hover {
     background-color: rgb(216, 0, 0);
-}
-header .trash,header .edit{
-    height: 30px;
-    width: 30px;
-    transition: 0.5s;
-    padding:4px;
-    border-radius: 4px;
-    margin-left: 15px;
-}
-header .trash:hover,header .edit:hover{
-    background-color:rgb(0, 0, 0);
-}
-header .trash:active,header .edit:active {
-    background-color: transparent;
 }
 /* -----------------------------------------footer styles----------------------------------------------- */
 footer {
@@ -280,7 +291,7 @@ footer img {
 }
 @media all and (max-width:900px) {
     header h1 {
-        font-size: 25px;
+        font-size: 22px;
     }
     header .btn {
         padding: 7px 0;

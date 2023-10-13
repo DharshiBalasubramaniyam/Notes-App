@@ -48,7 +48,7 @@ function Addnote(props) {
             <header>
                 <h1>
                     <Link to="/" className='link'><img src={back} alt='back'/></Link>
-                    Add New Note
+                    <span>Add New Note</span>
                 </h1>
                 <img src={done} alt='done' onClick={handleSubmit}/>
             </header>

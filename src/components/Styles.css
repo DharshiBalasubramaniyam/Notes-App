@@ -37,17 +37,11 @@ header h1 {
     color: var(--white);
     display: flex;
     align-items: center;
-    /* background-color: bisque; */
 }
 header  img {
     width: 26px;
     height: 25px;
     transition: 0.5s;
-    /* display: none; */
-    /* background-color: aqua; */
-    /* padding:4px; */
-    /* border-radius: 4px; */
-    /* margin-right: 5px; */
     cursor: pointer;
 }
 header h1 img {
@@ -60,17 +54,9 @@ header img:hover{
 header .trash,header .edit{
     height: 22px;
     width: 22px;
-    /* transition: 0.5s; */
-    /* padding:4px; */
-    /* border-radius: 4px; */
     margin-left: 15px;
 }
-/* header .trash:hover,header .edit:hover{
-    background-color:rgb(0, 0, 0);
-} */
-/* header .trash:active,header .edit:active {
-    background-color: transparent;
-} */
+
 .btn {
     padding: 10.5px 0;
     background-color: var(--white);
@@ -266,6 +252,33 @@ section .confirm-box .delete {
 section .confirm-box .delete:hover {
     background-color: rgb(216, 0, 0);
 }
+.error {
+    background-color: aqua;
+    width: 100%;
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: rgb(255, 232, 232);
+    color: rgb(237, 0, 0);
+}
+.error span {
+    margin-right: 5px;
+}
+.error .icon {
+    margin-right: 5px;
+    padding: 0 5px;
+    line-height: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+.error .icon:hover {
+    background-color: rgb(255, 242, 242);
+}
+.error .error-text {
+    flex: 1;
+}
 /* -----------------------------------------footer styles----------------------------------------------- */
 footer {
     display: flex;
@@ -283,7 +296,7 @@ footer img {
 
 @media all and (max-width:1100px) {
     section {
-        padding: 90px 20px 0 20px;
+        padding: 70px 20px 0 20px;
     }
     header {
         padding: 8px 20px;

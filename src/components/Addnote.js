@@ -10,6 +10,7 @@ function Addnote(props) {
 
     const navigate = useNavigate();
     const titleRef = useRef(null);
+    const [error, setError] = useState("");
 
     useEffect(()=> {
         titleRef.current.focus();
@@ -27,18 +28,16 @@ function Addnote(props) {
         e.preventDefault();
 
         if (input.title==="") {
-            alert('Title is required!'); return;
+            setError('Title is required!'); return;
         }
         if (input.description==="") {
-            alert('Description is required!'); return;
+            setError('Description is required!'); return;
         }
 
         props.addNote(input);
         setInput(previousState => {
             return {...previousState, title: "", description: ""}
         })
-
-        // alert('New note added successfully!');
 
         navigate(-1);
     }
@@ -53,8 +52,11 @@ function Addnote(props) {
                 <img src={done} alt='done' onClick={handleSubmit}/>
             </header>
             <section>
+                {error === "" ? <></> : <div className='error'>
+                                            <span className='icon'>&#9888;</span>
+                                            <span className='error-text'>{error}</span>
+                                            <span className='icon' onClick={()=>{setError("")}}>&#10005;</span></div>}
                 <form>
-
                     <input type='text' 
                         ref={titleRef}
                         placeholder='Type your title'
@@ -62,7 +64,8 @@ function Addnote(props) {
                         onChange={(e) => {
                             setInput(previousState => {
                                 return {...previousState, title: e.target.value}
-                            })
+                            });
+                            setError("");
                         }}
                        
                     /><br/>
@@ -74,7 +77,8 @@ function Addnote(props) {
                         onChange={(e) => {
                             setInput(previousState => {
                                 return {...previousState, description: e.target.value}
-                            })
+                            });
+                            setError("");
                         }}
                     ></textarea>
                 </form>

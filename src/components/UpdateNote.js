@@ -8,6 +8,7 @@ function UpdateNote(props) {
 
     const location = useLocation();
     const note = location.state;
+    const [error, setError] = useState("");
 
     const titleRef = useRef(null);
 
@@ -27,15 +28,13 @@ function UpdateNote(props) {
         e.preventDefault();
 
         if (input.title==="") {
-            alert('Title is required!'); return;
+            setError('Title is required!'); return;
         }
         if (input.description==="") {
-            alert('Description is required!'); return;
+            setError('Description is required!'); return;
         }
 
         props.editNote(input);
-
-        // alert('Note edited successfully!');
 
         navigate(-1);
     }
@@ -49,6 +48,10 @@ function UpdateNote(props) {
                 <img src={done} alt='done' onClick={handleSubmit}/>
             </header>
             <section>
+            {error === "" ? <></> : <div className='error'>
+                                            <span className='icon'>&#9888;</span>
+                                            <span className='error-text'>{error}</span>
+                                            <span className='icon' onClick={()=>{setError("")}}>&#10005;</span></div>}
                 <form>
                     <input type='text' 
                         ref={titleRef}
@@ -57,7 +60,8 @@ function UpdateNote(props) {
                         onChange={(e) => {
                             setInput(previousState => {
                                 return {...previousState, title: e.target.value}
-                            })
+                            });
+                            setError("");
                         }}
                        
                     /><br/>
@@ -69,7 +73,8 @@ function UpdateNote(props) {
                         onChange={(e) => {
                             setInput(previousState => {
                                 return {...previousState, description: e.target.value}
-                            })
+                            });
+                            setError("");
                         }}
                     ></textarea>
                     

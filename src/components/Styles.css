@@ -206,6 +206,16 @@ section form .btns {
     justify-content: flex-end;
     gap: 10px;
 }
+section form input{
+    text-transform:uppercase;
+}
+section form input::first-letter, textarea::first-letter{
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 17px;
+}
 section form input, textarea{
     width: 100%;
     outline: none;
@@ -258,7 +268,7 @@ section .confirm-box .delete:hover {
     /* text-align: center; */
     display: flex;
     align-items: center;
-    padding: 5px;
+    padding: 10px 3px;
     margin-bottom: 10px;
     background-color: rgb(255, 232, 232);
     color: rgb(237, 0, 0);
